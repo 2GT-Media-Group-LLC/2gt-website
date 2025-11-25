@@ -3,6 +3,8 @@ layout: post
 title: "Setting Up MicroCloud at Home is Easier Than You Think!"
 date: 2025-11-21
 author: 2GT_Rich
+banner:
+  image: assets/images/post-pics/microcloud_thumbnail.jpg
 tags: [microcloud, canonical, ubuntu, private cloud, homelab, edge computing, cluster computing, virtualization, containers, LXD, LXC, Ceph, OVN]
 
 ---
