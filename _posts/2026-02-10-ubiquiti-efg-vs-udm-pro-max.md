@@ -8,7 +8,7 @@ description: "A comprehensive performance comparison between the Ubiquiti Enterp
 banner: https://img.youtube.com/vi/BvZWUHGZqMk/maxresdefault.jpg
 ---
 
-{% include extensions/youtube.html id="BvZWUHGZqMk" %}
+![](//youtu.be/BvZWUHGZqMk)
 
 Hey there homelabbers, self-hosters, IT-pros, and engineers. Rich here! Just recently, I left pfSense for UniFi. It was a tough decision, but the right one. In a previous video, I landed on and purchased the UDM Pro Max as a replacement for my homebrewed pfSense firewall. Late last year, an opportunity came up to get my hands on an EFG at a great price, and of course, I jumped on it.
 
