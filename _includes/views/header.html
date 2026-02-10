@@ -6,7 +6,7 @@
 {%- include functions.html func='get_value' default=true -%}
 {%- assign header_transparent = return -%}
 
-{%- if has_banner and header_transparent -%}
+{%- if has_banner and header_transparent and page.layout != "post" -%}
   {%- assign header_transparent_class = "site-header-transparent" -%}
 {%- endif -%}
 
@@ -66,7 +66,7 @@
     function storeScrollData() {
       var y = getScrollPos().y;
 
-      {%- if banner and header_transparent -%}
+      {%- if banner and header_transparent and page.layout != "post" -%}
       documentElement.setAttribute("data-header-transparent", "");
       {%- endif -%}
 

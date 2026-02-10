@@ -7,7 +7,9 @@
 
     {%- include views/header.html -%}
 
-    {%- include views/banner.html -%}
+    {%- unless page.layout == "post" -%}
+      {%- include views/banner.html -%}
+    {%- endunless -%}
 
     {%- include extensions/hashlocate.html -%}
 
