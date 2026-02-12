@@ -4,6 +4,7 @@ title: "Evaluating XCP-ng as an Alternative to VMware ESXi"
 date: 2024-02-04
 author: 2GT_Rich
 tags: [VMware, XCP-ng, virtualization]
+banner: https://img.youtube.com/vi/cSwmtg7sJb4/maxresdefault.jpg
 
 ---
 
