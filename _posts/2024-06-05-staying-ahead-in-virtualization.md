@@ -4,7 +4,8 @@ title: "Staying Ahead in the Virtualization Landscape: Late Spring 2024"
 date: 2024-06-05
 author: 2GT_Rich
 tags: [virtualization, XCP-ng, Proxmox, Hyper-V, Nutanix, VMware]
-
+banner:
+  image: https://img.youtube.com/vi/SZWiQOIsY38/maxresdefault.jpg
 ---
 
 ![](//youtube.com/watch?v=SZWiQOIsY38)

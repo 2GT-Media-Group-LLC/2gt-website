@@ -4,7 +4,8 @@ title: "Evaluating Hyper-V as an Alternative to VMware ESXi"
 date: 2024-05-21
 author: 2GT_Rich
 tags: [VMware, Hyper-V, virtualization]
-
+banner:
+  image: https://img.youtube.com/vi/hrfoCT9sioU/maxresdefault.jpg
 ---
 
 ![](//youtu.be/hrfoCT9sioU)

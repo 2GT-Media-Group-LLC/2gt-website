@@ -4,7 +4,8 @@ title: "Evaluating Nutanix as an Alternative to VMware ESXi"
 date: 2024-05-21
 author: 2GT_Rich
 tags: [VMware, Nutanix, virtualization]
-
+banner:
+  image: https://img.youtube.com/vi/rMzbuxd5b_Y/maxresdefault.jpg
 ---
 
 ![](//youtu.be/rMzbuxd5b_Y)

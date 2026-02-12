@@ -4,7 +4,8 @@ title: "The End of VMUG Advantage: What It Means for Homelabbers and IT Pros, an
 date: 2024-11-11
 author: 2GT_Rich
 tags: [VMUG, VMware, Broadcom, Homelab, IT]
-
+banner:
+  image: https://img.youtube.com/vi/j-da8druGT0/maxresdefault.jpg
 ---
 
 ![](//youtube.com/watch?v=j-da8druGT0)

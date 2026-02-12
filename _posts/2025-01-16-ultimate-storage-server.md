@@ -4,7 +4,8 @@ title: "The Ultimate Storage Server Upgrade for 2025"
 date: 2025-01-16
 author: 2GT_Rich
 tags: [storage, hardware]
-
+banner:
+  image: https://img.youtube.com/vi/ql-G2T2iDEE/maxresdefault.jpg
 ---
 
 ![](//youtube.com/watch?v=ql-G2T2iDEE)
