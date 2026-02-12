@@ -1,7 +1,7 @@
 ---
 layout: post
-title: " TEST Ubiquiti EFG vs UDM Pro Max: Is It Really Worth Double the Cost?"
-date: 2026-02-11
+title: "Ubiquiti EFG vs UDM Pro Max: Is It Really Worth Double the Cost?"
+date: 2026-02-10
 categories: [Homelab, Networking]
 tags: [ubiquiti, firewall, efg, udm-pro-max, networking]
 description: "A comprehensive performance comparison between the Ubiquiti Enterprise Fortress Gateway and UDM Pro Max to determine if the $1,999 flagship is worth double the cost of the $599 alternative."
