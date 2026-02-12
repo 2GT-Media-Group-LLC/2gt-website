@@ -1,15 +1,15 @@
 ---
+layout: post
 title: "Veeam v13: Native Linux Appliance Review & Proxmox Backup Walkthrough"
 date: 2026-01-12
 categories: [Backup, Virtualization, Proxmox, Veeam]
 tags: [Veeam, Proxmox, Linux Appliance, Backup, Review]
-banner:
-  image: https://img.youtube.com/vi/IUsywSK9Miw/maxresdefault.jpg
-  alt: "Veeam v13 Linux Appliance"
-  caption: "Veeam v13 brings native Linux appliance support and new backup features."
+description: "Complete walkthrough of Veeam v13's new Linux appliance, deployment in Proxmox, and honest assessment of features and limitations."
+banner: https://img.youtube.com/vi/IUsywSK9Miw/maxresdefault.jpg
 ---
 
 ![](//youtu.be/IUsywSK9Miw)
+
 When Veeam began expanding beyond just VMware and Hyper-V, I was ecstatic. Backup is the long pole in the tent for enterprise virtualization, and that expansion finally gave us real freedom in where we could run — and move — our workloads.
 
 But there was still a catch. Running Veeam meant running Windows. And for many organizations, that was a hard stop.
@@ -17,8 +17,6 @@ But there was still a catch. Running Veeam meant running Windows. And for many o
 On November 19th, 2025, that finally changed. Veeam version 13 removed the Windows requirement entirely, or did they?
 
 Let's dig in and take a closer look.
-
----
 
 ## Understanding Veeam v13
 
