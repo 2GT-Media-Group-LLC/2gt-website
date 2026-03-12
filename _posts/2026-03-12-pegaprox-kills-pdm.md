@@ -12,7 +12,7 @@ banner:
 
 ## Watch the Full Video
 
-{% include embed-youtube.html id="qnq0Y9mJgXA" %}
+![](//youtu.be/qnq0Y9mJgXA)
 
 ---
 
