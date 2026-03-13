@@ -4,6 +4,7 @@ title: "The Future of Virtualization: An Interview with SCALE Computing’s Jeff
 categories: markdown
 date: 2025-09-26
 author: 2GT_Rich
+banner: https://img.youtube.com/vi/aYKi6X3D8Ww/maxresdefault.jpg
 tags: [scale-computing, virtualization, acumera, hci]
 ---
 
