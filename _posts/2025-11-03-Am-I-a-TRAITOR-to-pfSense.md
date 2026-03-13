@@ -3,8 +3,7 @@ layout: post
 title: "Am I a TRAITOR to pfSense?!"
 date: 2025-11-03
 author: 2GT_Rich
-banner:
-  image: assets/images/post-pics/Unifi_thumbnail.jpg
+banner: https://img.youtube.com/vi/qG-Borg0wAY/maxresdefault.jpg
 tags: [pfSense, Ubiquiti, UniFi, firewall, networking]
 
 ---

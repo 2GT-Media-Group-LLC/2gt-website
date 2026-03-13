@@ -5,8 +5,7 @@ subtitle: Each post also has a subtitle
 categories: markdown
 date: 2025-02-12
 author: 2GT_Rich
-banner:
-  image: /assets/images/post-pics/2.png
+banner: https://img.youtube.com/vi/lPkQy5x_qDc/maxresdefault.jpg
 tags: [storage]
 ---
 

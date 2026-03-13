@@ -4,6 +4,7 @@ title: "Nutanix’s Big Shift: Disaggregated Storage Is (Finally) Here – But T
 categories: markdown
 date: 2025-05-15
 author: 2GT_Rich
+banner: https://img.youtube.com/vi/48unJcB_Nuc/maxresdefault.jpg
 tags: [nutanix, storage, virtualization]
 ---
 
