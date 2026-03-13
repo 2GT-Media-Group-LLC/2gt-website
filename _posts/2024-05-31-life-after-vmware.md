@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Life After VMware: A Comprehensive Roundup of Alternative Hypervisors"
-date: 2024-05-21
+date: 2024-05-31
 author: 2GT_Rich
 tags: [VMware, XCP-ng, Proxmox, Hyper-V, Nutanix, virtualization]
 banner:
