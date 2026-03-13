@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Evaluating Proxmox VE as an Alternative to VMware ESXi"
-date: 2024-05-21
+date: 2024-05-27
 author: 2GT_Rich
 tags: [VMware, Proxmox, virtualization]
 banner:
