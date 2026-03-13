@@ -3,7 +3,7 @@ layout: post
 title: "OpenMetal.io: Your Hosted Private Cloud Alternative to AWS, Azure, and GCP"
 date: 2026-03-13
 categories: [Cloud, Infrastructure]
-tags: [OpenMetal, OpenStack, PrivateCloud, Cloud, Ceph, Infrastructure]
+tags: [OpenMetal, OpenStack, PrivateCloud, Cloud, Ceph, Infrastructure, Sponsored]
 description: "A sponsored deep-dive into OpenMetal's hosted private cloud platform built on OpenStack and Ceph — and why it's a compelling alternative to AWS, Azure, and GCP for businesses with steady-state workloads."
 banner: https://img.youtube.com/vi/8CLw9tEs8oc/maxresdefault.jpg
 ---
