@@ -164,6 +164,7 @@ header_pages:
   - archives.html
   - tags.html
   - content-ethics.html
+  - support.html
 
 # Page default value
 # defaults:
