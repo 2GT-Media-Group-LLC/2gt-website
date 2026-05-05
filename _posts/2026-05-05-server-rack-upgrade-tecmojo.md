@@ -24,7 +24,7 @@ In this post (and the video above), I'm going to walk you through the planning, 
 
 ## The Problem with the Old Rack
 
-My existing APC rack has been a decent cabinet. APC makes genuinely fantastic infrastructure gear, but it was never designed for a mixed homelab — it's built to hold servers and nothing else. My homelab is a blend of servers and networking gear, and that distinction matters a lot.
+My existing APC rack has been a decent cabinet. APC makes genuinely fantastic infrastructure gear, but my rack was never designed for a mixed homelab — it's built to hold servers and nothing else. My homelab is a blend of servers and networking gear, and that distinction matters a lot.
 
 My biggest complaint was cable management. The edges of the cabinet directly meet the 19" rack mounting area, so the only way to manage cabling is through a patch panel (fine for Ethernet) or brush passthroughs for SFP twinax cables — which just looks messy and gross. My dream rack would have more width and vertical side pass-throughs for cleanly routing cables.
 
@@ -38,7 +38,7 @@ My requirements were simple: better cable management, more width for working spa
 
 The rack market, it turns out, is a mess. Random storefronts, questionable sellers, poor descriptions, and zero confidence in quality. The brands I know and trust — APC, Tripplite — require going through a 3rd party like CDW. Chatsworth makes beautiful gear, but at the dimensions and feature level I wanted, they were running into the thousands of dollars.
 
-As I kept searching, one company kept coming up: **[TecMojo](https://tecmojo.com/)**. Consistently recommended, with strong community backing. After digging in, I found the perfect rack: their [42U assembled 39" depth white server cabinet](https://tecmojo.com/products/tecmojo-42u-assembled-39inch-depth-white-server-cabinet-with-casters-3000lbs-weight-capacity).
+As I kept searching, one company kept coming up: **[TecMojo](https://tecmojo.com/)**. Consistently recommended, with strong community backing. After digging in, I found the perfect rack: their [42U assembled 43" depth white server cabinet](https://tecmojo.com/products/tecmojo-42u-assembled-39inch-depth-white-server-cabinet-with-casters-3000lbs-weight-capacity).
 
 This rack hits everything on my list:
 - **42U** — matches my existing rack height
@@ -52,7 +52,7 @@ The more I looked at this cabinet, the more I fell in love with it.
 
 ## Disclosure
 
-I did what any self-respecting YouTuber would do — I reached out to TecMojo and offered to make a video on the cabinet in exchange for the hardware. They loved the idea. Full disclosure: **TecMojo sent me this cabinet for free, making this a sponsored video.** That said, they have zero editorial control here — they're seeing this the same time you are. My loyalty is to you first, always. If they'd said no, I would have paid the $1,559 myself without hesitation.
+I did what any self-respecting YouTuber would do — I reached out to TecMojo and offered to make a video on the cabinet in exchange for the hardware. They loved the idea. Full disclosure: **TecMojo sent me this cabinet for free, which makes this a sponsored video.** That said, they had zero editorial control here — they're seeing this the same time you are. My loyalty is to you first, always. If they'd said no, I would have paid the $1,559 myself without hesitation.
 
 ---
 
