@@ -1,0 +1,6 @@
+{
+  "name": "2gt-website",
+  "compatibility_date": "2026-07-21",
+  "assets": { "directory": "_site" },
+  "compatibility_flags": ["nodejs_compat"]
+}
