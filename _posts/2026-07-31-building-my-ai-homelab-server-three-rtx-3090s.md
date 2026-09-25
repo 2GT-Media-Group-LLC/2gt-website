@@ -272,7 +272,7 @@ You'll still need to write an actual Caddyfile by hand, that part's outside the 
 name: ai-box-stack
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:latest
+    image: ghcr.io/open-webui/open-webui:cuda
     deploy:
       resources:
         reservations:
