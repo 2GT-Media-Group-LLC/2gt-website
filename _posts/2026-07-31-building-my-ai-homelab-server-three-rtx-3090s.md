@@ -482,7 +482,6 @@ A quick reference for what you just deployed, since the compose file alone doesn
 | **searxng** | Self-hosted meta search engine, used to give the AI live web search capability. |
 | **infinity** | Runs the reranking model (BAAI/bge-reranker-v2-m3) used to improve RAG result quality. |
 | **open-terminal** | Sandboxed terminal/code execution environment accessible from Open WebUI. |
-| **caddy** | Reverse proxy in front of the stack. |
 | **dozzle** | Real-time log viewer for all the running containers. |
 
 Every one of these is running on default settings in this video. Tuning the RAG pipeline, dialing in the reranker, picking the right models for a 72GB VRAM budget, and benchmarking real performance is the entire subject of Part 2.
