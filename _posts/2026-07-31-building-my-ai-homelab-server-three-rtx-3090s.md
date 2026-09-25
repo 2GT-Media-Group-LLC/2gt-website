@@ -272,7 +272,7 @@ You'll still need to write an actual Caddyfile by hand, that part's outside the 
 name: ai-box-stack
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:cuda
+    image: ghcr.io/open-webui/open-webui:latest
     deploy:
       resources:
         reservations:
@@ -294,7 +294,7 @@ services:
       - WHISPER_COMPUTE_TYPE=float16
       - WHISPER_LANGUAGE=en
       # --- Core ---
-      - WEBUI_URL=https://ai-box.tracelength.home/
+      - WEBUI_URL=<your host's URL>
       # Open WebUI stores webui.db + uploads under DATA_DIR
       - DATA_DIR=/app/backend/data
       # If you run Ollama as a service in this compose:
@@ -437,19 +437,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 120s
-
-  caddy:
-    image: caddy:latest
-    container_name: caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /ai-box/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - /ai-box/caddy/certs:/certs
-      - caddy_data:/data
-      - caddy_config:/config
 
   dozzle:
     container_name: dozzle
