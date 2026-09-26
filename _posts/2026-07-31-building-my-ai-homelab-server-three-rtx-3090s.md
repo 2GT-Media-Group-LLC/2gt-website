@@ -270,6 +270,7 @@ You'll still need to write an actual Caddyfile by hand, that part's outside the 
 
 ```yaml
 name: ai-box-stack
+
 services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:cuda
@@ -294,12 +295,12 @@ services:
       - WHISPER_COMPUTE_TYPE=float16
       - WHISPER_LANGUAGE=en
       # --- Core ---
-      - WEBUI_URL=<your host's URL>
+      - WEBUI_URL=https://ai-box.tracelength.home/
       # Open WebUI stores webui.db + uploads under DATA_DIR
       - DATA_DIR=/app/backend/data
       # If you run Ollama as a service in this compose:
       - OLLAMA_BASE_URL=http://ollama:11434
-      # Vector DB backend, Qdrant instead of the default embedded Chroma
+      # Vector DB backend
       - VECTOR_DB=qdrant
       - QDRANT_URI=http://qdrant:6333
       - ENABLE_QDRANT_MULTITENANCY_MODE=true
@@ -329,41 +330,24 @@ services:
     restart: unless-stopped
     volumes:
       - /ai-box/qdrant/storage:/qdrant/storage
-    ports:
-      - "6333:6333"
-      - "6334:6334"
 
   tika:
     image: apache/tika:latest-full
     container_name: tika
-    ports:
-      - "9998:9998"
     restart: unless-stopped
-
-  redis:
-    image: redis:alpine
-    container_name: searxng_redis
-    restart: unless-stopped
-    volumes:
-      - redis_data:/data
 
   searxng:
     image: searxng/searxng:latest
     container_name: searxng
     restart: unless-stopped
-    ports:
-      - "8080:8080"
     volumes:
-      - searxng_config:/etc/searxng
+      - /ai-box/searxng:/etc/searxng              # settings.yml, survives updates
       - searxng_data:/var/cache/searxng
     environment:
-      - SEARXNG_BASE_URL=<your URL to your server>
-      - SEARXNG_REDIS_HOST=redis
-      - SEARXNG_REDIS_PORT=6379
+      - SEARXNG_BASE_URL=http://ai-box.tracelength.home/
+      - SEARXNG_SECRET=<long random string>
       - UWSGI_WORKERS=4
       - UWSGI_THREADS=4
-    depends_on:
-      - redis
     logging:
       driver: "json-file"
       options:
@@ -380,6 +364,7 @@ services:
     restart: unless-stopped
     environment:
       - OLLAMA_CONTEXT_LENGTH=131071
+      - OLLAMA_KEEP_ALIVE=-1
     deploy:
       resources:
         reservations:
@@ -393,15 +378,13 @@ services:
     container_name: open-terminal
     restart: unless-stopped
     environment:
-      OPEN_TERMINAL_API_KEY: "<choose-your-own-api-key>"
+      OPEN_TERMINAL_API_KEY: "<create-your-secret-key>"
       OPEN_TERMINAL_PACKAGES: "ripgrep tree curl"
       OPEN_TERMINAL_PIP_PACKAGES: "httpx polars"
       OPEN_TERMINAL_MULTI_USER: "true"
     volumes:
       - open_terminal_home:/home/user
       # - /var/run/docker.sock:/var/run/docker.sock  # uncomment for Docker CLI access
-    ports:
-      - "8020:8000"
     security_opt:
       - no-new-privileges:false
     cap_drop:
@@ -412,8 +395,6 @@ services:
     image: michaelf34/infinity:latest
     container_name: infinity
     restart: unless-stopped
-    ports:
-      - "7997:7997"
     volumes:
       - infinity-cache:/app/.cache
     deploy:
@@ -438,26 +419,10 @@ services:
       retries: 3
       start_period: 120s
 
-  dozzle:
-    container_name: dozzle
-    image: amir20/dozzle:latest
-    restart: unless-stopped
-    ports:
-      - "8888:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - dozzle_data:/data
-
 volumes:
-  ollama:
-  redis_data:
-  searxng_config:
   searxng_data:
   open_terminal_home:
   infinity-cache:
-  caddy_data:
-  caddy_config:
-  dozzle_data:
 ```
 
 Save that as `docker-compose.yml`, drop it in a working directory on the host, and bring the whole stack up with one command:
