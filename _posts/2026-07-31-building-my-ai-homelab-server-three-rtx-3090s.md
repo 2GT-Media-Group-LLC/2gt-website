@@ -290,21 +290,30 @@ services:
       - "3000:8080"
     environment:
       - WEBUI_NAME=2GT AI
+      # --- Speech-to-text (Whisper, on the GPU) ---
       - WHISPER_MODEL=large-v3
       - WHISPER_MODEL_DIR=/app/backend/data/cache/whisper/models
       - WHISPER_COMPUTE_TYPE=float16
       - WHISPER_LANGUAGE=en
       # --- Core ---
-      - WEBUI_URL=https://ai-box.tracelength.home/
+      - WEBUI_URL=http://your-server:3000/          # the address you use to reach Open WebUI
       # Open WebUI stores webui.db + uploads under DATA_DIR
       - DATA_DIR=/app/backend/data
-      # If you run Ollama as a service in this compose:
       - OLLAMA_BASE_URL=http://ollama:11434
-      # Vector DB backend
+      - ENABLE_API_KEYS=true
+      # --- Vector DB ---
       - VECTOR_DB=qdrant
       - QDRANT_URI=http://qdrant:6333
       - ENABLE_QDRANT_MULTITENANCY_MODE=true
-      # Reranking + hybrid search
+      # --- Embeddings (run in Ollama, on the GPUs) ---
+      - RAG_EMBEDDING_ENGINE=ollama
+      - RAG_EMBEDDING_MODEL=mxbai-embed-large:latest   # pull it first: docker exec ollama ollama pull mxbai-embed-large
+      - RAG_OLLAMA_BASE_URL=http://ollama:11434
+      # --- Document extraction (Tika) ---
+      - CONTENT_EXTRACTION_ENGINE=tika
+      - TIKA_SERVER_URL=http://tika:9998
+      - TIKA_SERVER_VERSION=4                # Tika's major version; bump this when latest-full moves to Tika 5
+      # --- Reranking + hybrid search ---
       - ENABLE_RAG_HYBRID_SEARCH=true
       - RAG_RERANKING_ENGINE=external
       - RAG_EXTERNAL_RERANKER_URL=http://infinity:7997/rerank
@@ -312,7 +321,15 @@ services:
       - RAG_TOP_K=20
       - RAG_TOP_K_RERANKER=5
       - RAG_SYSTEM_CONTEXT=true
-      - ENABLE_API_KEYS=true
+      # --- Web search (SearXNG) ---
+      - ENABLE_WEB_SEARCH=true
+      - WEB_SEARCH_ENGINE=searxng
+      - SEARXNG_QUERY_URL=http://searxng:8080/search
+      - WEB_SEARCH_RESULT_COUNT=3
+      - WEB_SEARCH_CONCURRENT_REQUESTS=10
+      # --- Open Terminal (admin-level, proxied through Open WebUI) ---
+      # "key" MUST match OPEN_TERMINAL_API_KEY in the open-terminal service below
+      - 'TERMINAL_SERVER_CONNECTIONS=[{"id":"open-terminal","name":"Open Terminal","url":"http://open-terminal:8000","key":"CHANGE-ME-open-terminal-key","auth_type":"bearer"}]'
     volumes:
       # Core state (main DB webui.db, configs, etc.)
       - /ai-box/openwebui/core:/app/backend/data
@@ -323,6 +340,10 @@ services:
     depends_on:
       - ollama
       - qdrant
+      - tika
+      - searxng
+      - infinity
+      - open-terminal
 
   qdrant:
     image: qdrant/qdrant:latest
@@ -332,7 +353,7 @@ services:
       - /ai-box/qdrant/storage:/qdrant/storage
 
   tika:
-    image: apache/tika:latest-full
+    image: apache/tika:latest-full           # major version must match TIKA_SERVER_VERSION in open-webui
     container_name: tika
     restart: unless-stopped
 
@@ -340,12 +361,14 @@ services:
     image: searxng/searxng:latest
     container_name: searxng
     restart: unless-stopped
+    configs:
+      - source: searxng_settings                  # defined at the bottom of this file
+        target: /etc/searxng/settings.yml
     volumes:
-      - /ai-box/searxng:/etc/searxng              # settings.yml, survives updates
       - searxng_data:/var/cache/searxng
     environment:
-      - SEARXNG_BASE_URL=http://ai-box.tracelength.home/
-      - SEARXNG_SECRET=<long random string>
+      - SEARXNG_BASE_URL=http://your-server/
+      - SEARXNG_SECRET=CHANGE-ME-long-random-string  # openssl rand -hex 32
       - UWSGI_WORKERS=4
       - UWSGI_THREADS=4
     logging:
@@ -378,7 +401,7 @@ services:
     container_name: open-terminal
     restart: unless-stopped
     environment:
-      OPEN_TERMINAL_API_KEY: "<create-your-secret-key>"
+      OPEN_TERMINAL_API_KEY: "CHANGE-ME-open-terminal-key"  # must match "key" in TERMINAL_SERVER_CONNECTIONS
       OPEN_TERMINAL_PACKAGES: "ripgrep tree curl"
       OPEN_TERMINAL_PIP_PACKAGES: "httpx polars"
       OPEN_TERMINAL_MULTI_USER: "true"
@@ -418,6 +441,18 @@ services:
       timeout: 10s
       retries: 3
       start_period: 120s
+
+configs:
+  searxng_settings:
+    content: |
+      use_default_settings: true
+      server:
+        limiter: false        # limiter is for public instances; this one is internal-only
+        image_proxy: true
+      search:
+        formats:
+          - html
+          - json              # required, or Open WebUI's web search fails
 
 volumes:
   searxng_data:
