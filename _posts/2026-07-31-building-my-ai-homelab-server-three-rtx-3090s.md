@@ -328,7 +328,7 @@ services:
     container_name: qdrant
     restart: unless-stopped
     volumes:
-      - /ai_storage/qdrant/storage:/qdrant/storage
+      - /ai-box/qdrant/storage:/qdrant/storage
     ports:
       - "6333:6333"
       - "6334:6334"
