@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My Local AI Software Stack, Explained: Ollama, Open WebUI, Qdrant, SearXNG, and More"
-date: 2026-10-06
+date: 2026-09-29
 categories: [Homelab, AI, Infrastructure]
 tags: [AI, LLM, Homelab, Ollama, OpenWebUI, Qdrant, Tika, SearXNG, Infinity, OpenTerminal, RAG, Reranking, Docker, DockerCompose, NVIDIA, SelfHosted, DigitalSovereignty]
 description: "Part 2 of my local AI server series: every piece of the software stack running on my triple RTX 3090 box, why I chose it, how a prompt actually flows through it, and a block-by-block walkthrough of the Docker Compose file that builds it all."
