@@ -35,6 +35,10 @@ $brand-color: map-get($brand-colors, "orangered");
 
 $content-width: {{ site.content_width | default: '920px' }};
 
+// Body text size. The theme default is 14px; 16px is the modern readability
+// baseline. Headings, header height, and spacing all scale from this value.
+$base-font-size: 16px;
+
 // Click to top theme
 $click-to-top-light-background-color: {{ site.click_to_top.light.background_color | default: "white" }};
 $click-to-top-light-color: {{ site.click_to_top.light.color | default: "#454545" }};
