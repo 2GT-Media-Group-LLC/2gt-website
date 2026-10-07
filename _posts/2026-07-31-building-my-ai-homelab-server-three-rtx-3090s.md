@@ -246,25 +246,21 @@ A quick word on why every service below runs in a container instead of installed
 
 ### 6. Deploy the Stack
 
-This Compose file builds out Open WebUI, Ollama, Qdrant, Tika, SearXNG, an Infinity reranker, Open Terminal, Caddy, and Dozzle, and wires them all together.
+This Compose file builds out Open WebUI, Ollama, Qdrant, Tika, SearXNG, an Infinity reranker, and Open Terminal, and wires them all together.
 
 **One more prerequisite before you run this:** several of these services use bind mounts, not Docker named volumes, for the state that actually matters. That means the host paths referenced in the file need to already exist before you bring the stack up. Docker won't error out if they're missing, it'll just silently create empty directories in their place, and your data won't land where you expect. Create these on the host first:
 
 - `/ai-box/openwebui/core` — Open WebUI's core state: the webui.db database, user accounts, and configuration.
 - `/ai-box/openwebui/rag/docs` and `/ai-box/openwebui/rag/uploads` — documents and files fed into the RAG pipeline.
-- `/ai_storage/qdrant/storage` — Qdrant's vector database storage. This one lives on a separate path (`/ai_storage` instead of `/ai-box`) because it's on its own dedicated storage rather than the same disk as everything else. Adjust it to wherever you're keeping bulk storage on your box.
+- `/ai-box/qdrant/storage` — Qdrant's vector database storage.
 - `/ai-box/ollama` — downloaded model weights. This directory gets big fast, budget your disk accordingly.
-- `/ai-box/caddy/certs` — TLS certificates for Caddy.
-- `/ai-box/caddy/Caddyfile` — this one's a file, not a directory, and it needs to exist with actual Caddy configuration in it before you run `docker compose up`. If it's missing, Docker will create an empty directory in its place instead of mounting a file, and Caddy will fail to start.
 
 A one-liner to stub out the directories:
 
 ```bash
 sudo mkdir -p /ai-box/openwebui/core /ai-box/openwebui/rag/docs /ai-box/openwebui/rag/uploads \
-  /ai_storage/qdrant/storage /ai-box/ollama /ai-box/caddy/certs
+  /ai-box/qdrant/storage /ai-box/ollama
 ```
-
-You'll still need to write an actual Caddyfile by hand, that part's outside the scope of this post.
 
 > **Before you copy this:** `OPEN_TERMINAL_API_KEY` under the `open-terminal` service is a placeholder on purpose, swap it for a password you generate yourself. Never ship a compose file with real secrets sitting in plaintext environment variables, especially not one you're going to post publicly.
 
