@@ -16,7 +16,7 @@ On Friday, November 20th, I did something that felt very grown up for a guy who 
 
 If testing goes well, **stable 1.1 should land in about a week.**
 
-And here's the part I want to lead with, because it's the best part: **1.1 is mostly features you asked for.** A lot of it was also *built*, *tested*, or *bug-hunted* by people on the Internet who owe me absolutely nothing. Twenty-two of them get a shout-out at the end of this post, and they deserve every word of it.
+And here's the best part: **1.1 is mostly features you asked for.** A lot of it was also *built*, *tested*, or *bug-hunted* by people on the Internet who owe me absolutely nothing. Twenty-two of them get a shout-out at the end of this post, and they deserve every word of it!
 
 But first, the goodies.
 
